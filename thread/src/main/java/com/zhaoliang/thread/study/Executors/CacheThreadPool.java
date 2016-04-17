@@ -7,7 +7,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class CacheThreadPool {
-	private static int POOL_SIZE = 1;
 
 	public static void main(String[] args) {
 		testThreadPoolExecutor();
@@ -16,7 +15,7 @@ public class CacheThreadPool {
 
 	public static void testThreadPoolExecutor() {
 		ExecutorService exec = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 10L, TimeUnit.SECONDS,
-				new SynchronousQueue<Runnable>());
+													  new SynchronousQueue<>());
 
 		for (int i = 0; i < 5; i++)
 			try {
@@ -33,6 +32,7 @@ public class CacheThreadPool {
 		int cpuNums = Runtime.getRuntime().availableProcessors();
 
 		// ExecutorService通常根据系统资源情况灵活定义线程池大小
+		int POOL_SIZE = 1;
 		ExecutorService executorService = Executors.newFixedThreadPool(cpuNums * POOL_SIZE);
 		executorService.shutdown();
 	}
