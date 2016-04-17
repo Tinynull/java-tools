@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 
+	例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀) -->
+<mapper namespace="com.zhaoliang.mybatis.study.mapping.customersMapper">
+	<!-- 在select标签中编写查询的SQL语句， 设置select标签的id属性为getUser，id属性值必须是唯一的，不能够重复 使用parameterType属性指明查询时使用的参数类型， 
+		resultType属性指明查询返回的结果集类型 resultType="com.zhaoliang.mybatis.study.dao.Customers"就表示将查询结果封装成一个Customers类的对象返回 
+		Customers类就是customers表所对应的实体类 -->
+	<!-- 根据id查询得到一个user对象 -->
+	<select id="getCustomer" parameterType="string" resultType="_Customers">
+		<!-- resultType="com.zhaoliang.mybatis.study.dao.Customers"> -->
+		select * from customers where cust_id=#{id}
+	</select>
+
+
+
+	<resultMap type="_Customers" id="resultListCustomers">
+		<id column="cust_id" property="cust_id"></id>
+		<result column="cust_name" property="cust_name" />
+		<result column="cust_address" property="cust_address" />
+		<result column="cust_state" property="cust_state" />
+		<result column="cust_zip" property="cust_zip" />
+		<result column="cust_country" property="cust_country" />
+		<result column="cust_contact" property="cust_contact" />
+		<result column="cust_email" property="cust_email" />
+	</resultMap>
+
+	<select id="selectCustomers" parameterType="string" resultMap="resultListCustomers">
+		select * from customers where cust_id like #{cust_id}
+	</select>
+
+	<insert id="addCustomers" parameterType="_Customers"
+		useGeneratedKeys="false">
+		insert into
+		customers(cust_id,cust_name,cust_address,cust_state,cust_zip,cust_country,cust_contact,cust_email)
+		values(#{cust_id},#{cust_name},#{cust_address},#{cust_state},#{cust_zip},#{cust_country},#{cust_contact},#{cust_email})
+	</insert>
+
+	<update id="updateCustomer" parameterType="_Customers">
+		update customers set
+		cust_name=#{cust_name},cust_zip=#{cust_zip},cust_email=#{cust_email}
+		where cust_id=#{cust_id}
+	</update>
+	
+	<delete id="deleteCustomer" parameterType="string">
+		 delete from customers where cust_id=#{cust_id}
+	</delete>
+</mapper>
