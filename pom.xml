@@ -24,6 +24,7 @@
         <module>spring-mvc</module>
         <module>zookeeper</module>
         <module>slf4j</module>
+        <module>thread</module>
     </modules>
     <packaging>pom</packaging>
 
