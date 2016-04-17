@@ -28,21 +28,9 @@ import akka.event.LoggingAdapter;
 import akka.japi.Function;
 import akka.util.Timeout;
 
-import static com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.CounterServiceApi.GetCurrentCount;
-import static com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.WorkerApi.Do;
-import static com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.WorkerApi.Start;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
-import com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.CounterApi.UseStorage;
-import com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.CounterServiceApi.CurrentCount;
-import com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.CounterServiceApi.Increment;
-import com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.CounterServiceApi.ServiceUnavailable;
-import com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.StorageApi.Entry;
-import com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.StorageApi.Get;
-import com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.StorageApi.StorageException;
-import com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.StorageApi.Store;
-import com.zhaoliang.akka.study.FaultTolerance.FaultHandlingDocSample.WorkerApi.Progress;
 
 public class FaultHandlingDocSample {
 
