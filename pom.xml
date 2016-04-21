@@ -25,6 +25,7 @@
         <module>zookeeper</module>
         <module>slf4j</module>
         <module>thread</module>
+        <module>vertx</module>
     </modules>
     <packaging>pom</packaging>
 
