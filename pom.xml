@@ -26,10 +26,45 @@
         <module>slf4j</module>
         <module>thread</module>
         <module>vertx</module>
+        <module>vertx-eventbus-publish</module>
+        <module>vertx-eventbus-receive</module>
     </modules>
     <packaging>pom</packaging>
 
     <dependencies>
+
+        <!--hazelcast依赖-->
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-client</artifactId>
+            <version>3.6.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+            <version>3.6.2</version>
+        </dependency>
+
+        <!--vertx相关依赖-->
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-hazelcast</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
