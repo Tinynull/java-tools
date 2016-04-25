@@ -11,6 +11,10 @@
 
     <artifactId>vertx-eventbus-publish</artifactId>
 
+    <properties>
+        <main-Class>com.zhaoliang.vertx.eventbus.publish.Publish</main-Class>
+        <main-Class2>com.zhaoliang.vertx.eventbus.publish.Sender</main-Class2>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -27,7 +31,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.zhaoliang.vertx.eventbus.publish.Publish</mainClass>
+                                    <mainClass>${main-Class2}</mainClass>
                                     <!--<manifestEntries>
                                         <Main-Class>io.vertx.core.Starter</Main-Class>
                                         <Main-Verticle>com.zhaoliang.receviceone.Receiver</Main-Verticle>

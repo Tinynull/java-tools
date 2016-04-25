@@ -1,6 +1,8 @@
 package com.zhaoliang.java8.lambda;
 
 /**
+ * learn how to solve conflict.
+ * 
  * Created by zhaoliang(weston_contribute@163.com) on 2016/4/23.
  */
 public class OptionalTest {
@@ -22,8 +24,12 @@ public class OptionalTest {
         System.out.println();
         System.out.println();
         System.out.println();
-        test.equals("hello");
+        final boolean hello = test.equals("hello");
         System.out.println("hello" + test.substring(2) + test.substring(1));
+        if(hello){
+            System.out.println(true);
+        }
+        System.out.println(test.substring(1));
         test.concat("hello");
         System.out.println(test);
     }
