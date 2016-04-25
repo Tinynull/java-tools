@@ -9,16 +9,8 @@ public class OptionalTest {
     public static void main(String[] args) {
         System.out.println(test);
         System.out.println(test.equals("test"))
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        test.equals("hello");
+        System.out.print("hello");
+        test.equals("hello" + test.substring(2) + " world");
         System.out.println(test.substring(1));
     }
 }
