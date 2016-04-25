@@ -18,5 +18,7 @@ public class OptionalTest {
         System.out.println();
         System.out.println();
         System.out.println();
+        test.equals("hello");
+        System.out.println(test.substring(1));
     }
 }
