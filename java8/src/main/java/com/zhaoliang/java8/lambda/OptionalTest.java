@@ -7,6 +7,6 @@ public class OptionalTest {
     
     private static String test = "test";
     public static void main(String[] args) {
-
+        System.out.println(test);
     }
 }
