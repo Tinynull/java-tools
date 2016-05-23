@@ -8,7 +8,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <properties>
+        <!--<start.Main>com.zhaoliang.commons.cli.Main</start.Main>-->
+        <start.Main>com.zhaoliang.commons.cli.Test</start.Main>
+    </properties>
     <artifactId>commons-cli</artifactId>
 
     <dependencies>
@@ -20,6 +23,15 @@
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -34,7 +46,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.zhaoliang.commons.cli.Main</mainClass>
+                                    <mainClass>${start.Main}</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

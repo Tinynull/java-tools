@@ -12,6 +12,8 @@ public class ExecBlockingExample extends AbstractVerticle {
 
     private Random random = new Random();
 
+    private boolean aBoolean = true;
+
     // Convenience method so you can run it in your IDE
     public static void main(String[] args) {
         Vertx.vertx().deployVerticle(new ExecBlockingExample());
@@ -31,9 +33,15 @@ public class ExecBlockingExample extends AbstractVerticle {
                 // Do the blocking operation in here
 
                 // Imagine this was a call to a blocking API to get the result
-                try {
-                    Thread.sleep(2000);
-                } catch (Exception ignore) {
+
+                if(aBoolean){
+                    aBoolean = false;
+                }else{
+                    aBoolean = true;
+                    try {
+                        Thread.sleep(5000);
+                    } catch (Exception ignore) {
+                    }
                 }
                 int result = random.nextInt(40);
 
