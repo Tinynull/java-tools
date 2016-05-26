@@ -1,6 +1,7 @@
 package com.zhaoliang.javase8.chaptertwo;
 
 import java.util.Arrays;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.IntStream;
@@ -36,6 +37,14 @@ public class Test1<T, R> {
         Test1<Integer, Long> t = new Test1<>();
         Integer test = t.test(t::value);
         System.out.println(test);
+
+        Long aLong = t.test2(10, t::getTest2);
+        System.out.println(aLong);
+
+    }
+
+    public Long getTest2(Integer integer) {
+        return integer.longValue();
     }
 
     public Integer value() {
@@ -48,6 +57,11 @@ public class Test1<T, R> {
 
     public R test2(T t, Function<T, R> function) {
         return function.apply(t);
+    }
+
+
+    public R testFunction(T t, R r, BiFunction<T, Integer, R> biFunction) {
+        return biFunction.apply(t, 10);
     }
 
 }
