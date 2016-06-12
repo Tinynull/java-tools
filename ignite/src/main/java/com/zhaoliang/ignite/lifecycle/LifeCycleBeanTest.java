@@ -1,7 +1,5 @@
 package com.zhaoliang.ignite.lifecycle;
 
-import com.zhaoliang.ignite.MyLifecycleBean;
-
 import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.configuration.IgniteConfiguration;

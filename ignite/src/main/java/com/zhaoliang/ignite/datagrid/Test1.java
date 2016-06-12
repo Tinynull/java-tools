@@ -6,9 +6,7 @@ import com.zhaoliang.ignite.utils.ConnectionUtils;
 
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
-import org.apache.ignite.Ignition;
 import org.apache.ignite.configuration.CacheConfiguration;
-import org.apache.ignite.configuration.IgniteConfiguration;
 
 /**
  * CacheConfiguration.

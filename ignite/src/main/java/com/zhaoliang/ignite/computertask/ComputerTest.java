@@ -1,4 +1,4 @@
-package com.zhaoliang.ignite;
+package com.zhaoliang.ignite.computertask;
 
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCluster;

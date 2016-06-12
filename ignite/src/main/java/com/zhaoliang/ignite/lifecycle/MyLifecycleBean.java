@@ -1,4 +1,4 @@
-package com.zhaoliang.ignite;
+package com.zhaoliang.ignite.lifecycle;
 
 import org.apache.ignite.IgniteException;
 import org.apache.ignite.lifecycle.LifecycleBean;
