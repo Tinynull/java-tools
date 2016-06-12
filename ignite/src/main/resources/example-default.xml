@@ -31,8 +31,8 @@
 
     <!-- Datasource for sample in-memory H2 database. -->
     <bean id="h2-example-db" class="org.h2.jdbcx.JdbcDataSource">
-        <property name="URL" value="jdbc:h2:tcp://localhost/mem:ExampleDb" />
-        <property name="user" value="sa" />
+        <property name="URL" value="jdbc:h2:tcp://localhost/mem:ExampleDb"/>
+        <property name="user" value="sa"/>
     </bean>
 
     <bean abstract="true" id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
@@ -79,5 +79,36 @@
                 </property>
             </bean>
         </property>
+    </bean>
+
+    <!--有时可能希望在Ignite节点启动和停止的之前和之后执行特定的操作，这个可以通过
+    实现LifecycleBean接口实现，然后在spring的配置文件中通过指定IgniteConfiguration
+    的lifecycleBeans属性实现。-->
+    <bean class="org.apache.ignite.IgniteConfiguration">
+        <property name="lifecycleBeans">
+            <list>
+                <bean class="com.zhaoliang.ignite.MyLifecycleBean"></bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.apache.ignite.configuration.IgniteConfiguration">
+
+    </bean>
+    <bean id="grid.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
+        <!--很多部署环境中，客户端节点是在主集群外启动的，机器和网络都比较差，在这些场
+        景中服务端可能产生负载（比如持续查询通知）而客户端没有能力处理，导致服务端的输
+        出消息队列不断增长，这可能最终导致服务端出现内存溢出的情况，或者如果打开背压控
+        制时导致整个集群阻塞。-->
+        <!--要处理这样的场景，可以配置允许向客户端节点输出消息的最大值，如果输出队列的
+        大小超过配置的值，该客户端节点会从集群断开以防止拖慢整个集群-->
+        <property name="communicationSpi">
+            <bean class="org.apache.ignite.spi.communication.tcp.TcpCommunicationSpi">
+                <property name="slowClientQueueLimit" value="1000"/>
+            </bean>
+        </property>
+
+        <!--可以通过IgniteConfiguration.setClientMode(...)属性配置一个节点，或者为客户端，或者为服务端。-->
+        <property name="clientMode" value="true"/>
     </bean>
 </beans>

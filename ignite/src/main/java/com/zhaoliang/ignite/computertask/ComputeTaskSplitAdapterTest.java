@@ -1,5 +1,6 @@
 package com.zhaoliang.ignite.computertask;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCompute;
 import org.apache.ignite.Ignition;
@@ -11,6 +12,8 @@ import org.apache.ignite.configuration.IgniteConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by zhaoliang(weston_contribute@163.com) on 2016/6/8.
@@ -28,16 +31,25 @@ public class ComputeTaskSplitAdapterTest {
 
         // Enable client mode.
         cfg.setClientMode(true);
+        cfg.setPeerClassLoadingEnabled(true);
 
         // Start Ignite in client mode.
         Ignite ignite = Ignition.start(cfg);
 
-        IgniteCompute compute = ignite.compute(ignite.cluster().forLocal());
+        List<String> collect = Stream.generate(() -> RandomStringUtils.random(5)).limit(10000).collect(Collectors.toList());
+        String words = "";
+        for(String s : collect){
+            words = words + " " + s;
+        }
+
+//        IgniteCompute compute = ignite.compute(ignite.cluster().forLocal());
+        IgniteCompute compute = ignite.compute();
 
         // Execute task on the clustr and wait for its completion.
-        int cnt = compute.execute(CharacterCountTask.class, "Hello Grid Enabled World!");
+        int cnt = compute.execute(CharacterCountTask.class, "hello world  adf dfasd fassdf ");
 
         System.out.println(">>> Total number of characters in the phrase is '" + cnt + "'.");
+        ignite.close();
     }
 
     /**
