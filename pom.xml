@@ -29,6 +29,8 @@
         <module>vertx-eventbus-publish</module>
         <module>vertx-eventbus-receive</module>
         <module>java8</module>
+        <module>commons-configuration2</module>
+        <module>ignite</module>
     </modules>
     <packaging>pom</packaging>
 
