@@ -31,6 +31,7 @@
         <module>java8</module>
         <module>commons-configuration2</module>
         <module>ignite</module>
+        <module>plugin-test</module>
     </modules>
     <packaging>pom</packaging>
 
