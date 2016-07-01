@@ -1,42 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Licensed to the Apache Software Foundation (ASF) under one or more
-  contributor license agreements.  See the NOTICE file distributed with
-  this work for additional information regarding copyright ownership.
-  The ASF licenses this file to You under the Apache License, Version 2.0
-  (the "License"); you may not use this file except in compliance with
-  the License.  You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
-
-<!--
-    Ignite Spring configuration file to startup Ignite cache.
-
-    This file demonstrates how to configure cache using Spring. Provided cache
-    will be created on node startup.
-
-    Use this configuration file when running HTTP REST examples (see 'examples/rest' folder).
-
-    When starting a standalone node, you need to execute the following command:
-    {IGNITE_HOME}/bin/ignite.{bat|sh} examples/config/example-cache.xml
-
-    When starting Ignite from Java IDE, pass path to this file to Ignition:
-    Ignition.start("examples/config/example-cache.xml");
--->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
+
+        <property name="peerClassLoadingEnabled" value="true"/>
+
+        <!--可以通过IgniteConfiguration.setClientMode(...)属性配置一个节点，或者为客户端，或者为服务端。-->
+        <property name="clientMode" value="true"/>
+
+        <!--有时可能希望在Ignite节点启动和停止的之前和之后执行特定的操作，这个可以通过实现LifecycleBean接口实现，然后在spring的配置文件中通过指定IgniteConfiguration的lifecycleBeans属性实现。-->
+        <property name="lifecycleBeans">
+            <list>
+                <bean class="com.zhaoliang.ignite.lifecycle.MyLifecycleBean"/>
+                <bean class="com.zhaoliang.ignite.lifecycle.MyLifecycleBean2"/>
+            </list>
+        </property>
+
+        <!--ignite.cluster().forAttribute("ROLE", "worker");-->
+        <property name="userAttributes">
+            <map>
+                <entry key="ROLE" value="worker"/>
+            </map>
+        </property>
+
         <property name="cacheConfiguration">
             <list>
                 <!-- Partitioned cache example configuration (Atomic mode). -->
@@ -44,20 +34,29 @@
                     <property name="atomicityMode" value="ATOMIC"/>
                     <property name="backups" value="1"/>
                 </bean>
+
+                <bean class="org.apache.ignite.configuration.CacheConfiguration">
+                    <property name="name" value="myccache"></property>
+                    <!-- Atomic write order mode. -->
+                    <property name="atomicWriteOrderMode" value="PRIMARY"/>
+
+                    <property name="backups" value="1"/>
+                </bean>
             </list>
+        </property>
+
+        <!--很多部署环境中，客户端节点是在主集群外启动的，机器和网络都比较差，在这些场景中服务端可能产生负载（比如持续查询通知）而客户端没有能力处理，导致服务端的输出消息队列不断增长，这可能最终导致服务端出现内存溢出的情况，或者如果打开背压控制时导致整个集群阻塞。-->
+        <!--要处理这样的场景，可以配置允许向客户端节点输出消息的最大值，如果输出队列的大小超过配置的值，该客户端节点会从集群断开以防止拖慢整个集群-->
+        <property name="communicationSpi">
+            <bean class="org.apache.ignite.spi.communication.tcp.TcpCommunicationSpi">
+                <property name="slowClientQueueLimit" value="1000"/>
+            </bean>
         </property>
 
         <!-- Explicitly configure TCP discovery SPI to provide list of initial nodes. -->
         <property name="discoverySpi">
             <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
                 <property name="ipFinder">
-                    <!--
-                        Ignite provides several options for automatic discovery that can be used
-                        instead os static IP based discovery. For information on all options refer
-                        to our documentation: http://apacheignite.readme.io/docs/cluster-config
-                    -->
-                    <!-- Uncomment static IP finder to enable static-based discovery of initial nodes. -->
-                    <!--<bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">-->
                     <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.multicast.TcpDiscoveryMulticastIpFinder">
                         <property name="addresses">
                             <list>

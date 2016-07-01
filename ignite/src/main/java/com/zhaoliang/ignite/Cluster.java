@@ -17,32 +17,27 @@ import java.util.Collection;
 public class Cluster {
     public static void main(String[] args) {
 
-        ////////////////////////
-        ///////start client/////
-        ////////////////////////
+        // start client
         IgniteConfiguration cfg = new IgniteConfiguration();
 
         // Enable client mode.
         cfg.setClientMode(true);
 
+        cfg.setPeerClassLoadingEnabled(true);
+
         // Start Ignite in client mode.
         Ignite ignite = Ignition.start(cfg);
 
 
-        ////////////////////////
-        /////获取集群的所有节点///
-        ////////////////////////
+        // 获取集群的所有节点
         IgniteCluster cluster = ignite.cluster();
         Collection<String> strings = cluster.hostNames();
-        System.out.println(strings);
+        System.out.println("cluster nodes : " + strings);
 
-
-        /////////////////////////////////
-        /////获取本地节点的的metrics信息///
-        /////////////////////////////////
-        // Local Ignite node.
+        // 获取本地节点的的metrics信息
         ClusterNode localNode = cluster.localNode();
         System.out.println("localNode().id()=" + localNode.id());
+
         // Node metrics.
         ClusterMetrics metrics = localNode.metrics();
         // Get some metric values.

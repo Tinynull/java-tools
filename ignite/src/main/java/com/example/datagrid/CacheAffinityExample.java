@@ -83,6 +83,7 @@ public final class CacheAffinityExample {
 
         // Co-locates jobs with data using IgniteCluster.mapKeysToNodes(...) method.
         visitUsingMapKeysToNodes();
+
         // Distributed cache could be removed from cluster only by #destroyCache() call.
         ignite.destroyCache(CACHE_NAME);
         ignite.close();

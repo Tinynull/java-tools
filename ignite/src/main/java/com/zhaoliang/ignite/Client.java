@@ -20,6 +20,7 @@ public class Client {
         // Start Ignite in client mode.
         Ignite ignite = Ignition.start(cfg);
 
+        // Gets existing cache with the given name or creates new one using template configuration.
         IgniteCache<Integer, String> cache = ignite.getOrCreateCache("myCacheName");
 
         // Store keys in cache (values will end up on different cache nodes).

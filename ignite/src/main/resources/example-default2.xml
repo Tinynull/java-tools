@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<!--
+    Ignite configuration with all defaults and enabled p2p deployment and enabled events.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- Datasource for sample in-memory H2 database. -->
+    <bean id="h2-example-db" class="org.h2.jdbcx.JdbcDataSource">
+        <property name="URL" value="jdbc:h2:tcp://localhost/mem:ExampleDb"/>
+        <property name="user" value="sa"/>
+    </bean>
+
+    <bean abstract="true" id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
+        <!-- Set to true to enable distributed class loading for examples, default is false. -->
+        <property name="peerClassLoadingEnabled" value="true"/>
+
+        <!-- Enable task execution events for examples. -->
+        <property name="includeEventTypes">
+            <list>
+                <!--Task execution events-->
+                <util:constant static-field="org.apache.ignite.events.EventType.EVT_TASK_STARTED"/>
+                <util:constant static-field="org.apache.ignite.events.EventType.EVT_TASK_FINISHED"/>
+                <util:constant static-field="org.apache.ignite.events.EventType.EVT_TASK_FAILED"/>
+                <util:constant static-field="org.apache.ignite.events.EventType.EVT_TASK_TIMEDOUT"/>
+                <util:constant static-field="org.apache.ignite.events.EventType.EVT_TASK_SESSION_ATTR_SET"/>
+                <util:constant static-field="org.apache.ignite.events.EventType.EVT_TASK_REDUCED"/>
+
+                <!--Cache events-->
+                <util:constant static-field="org.apache.ignite.events.EventType.EVT_CACHE_OBJECT_PUT"/>
+                <util:constant static-field="org.apache.ignite.events.EventType.EVT_CACHE_OBJECT_READ"/>
+                <util:constant static-field="org.apache.ignite.events.EventType.EVT_CACHE_OBJECT_REMOVED"/>
+            </list>
+        </property>
+
+        <!-- Explicitly configure TCP discovery SPI to provide list of initial nodes. -->
+<!--        <property name="discoverySpi">
+            <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
+                <property name="ipFinder">
+                    <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder">
+                    <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.multicast.TcpDiscoveryMulticastIpFinder">
+                        <property name="addresses">
+                            <list>
+                                &lt;!&ndash; In distributed environment, replace with actual host IP address. &ndash;&gt;
+                                <value>127.0.0.1:47500..47509</value>
+                            </list>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </property>-->
+    </bean>
+
+    <!--有时可能希望在Ignite节点启动和停止的之前和之后执行特定的操作，这个可以通过
+    实现LifecycleBean接口实现，然后在spring的配置文件中通过指定IgniteConfiguration
+    的lifecycleBeans属性实现。-->
+    <!--<bean class="org.apache.ignite.configuration.IgniteConfiguration">-->
+        <!--<property name="lifecycleBeans">-->
+            <!--<list>-->
+                <!--<bean class="com.zhaoliang.ignite.lifecycle.MyLifecycleBean"></bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <bean class="org.apache.ignite.configuration.IgniteConfiguration">
+        <!--很多部署环境中，客户端节点是在主集群外启动的，机器和网络都比较差，在这些场
+        景中服务端可能产生负载（比如持续查询通知）而客户端没有能力处理，导致服务端的输
+        出消息队列不断增长，这可能最终导致服务端出现内存溢出的情况，或者如果打开背压控
+        制时导致整个集群阻塞。-->
+        <!--要处理这样的场景，可以配置允许向客户端节点输出消息的最大值，如果输出队列的
+        大小超过配置的值，该客户端节点会从集群断开以防止拖慢整个集群-->
+        <property name="communicationSpi">
+            <bean class="org.apache.ignite.spi.communication.tcp.TcpCommunicationSpi">
+                <property name="slowClientQueueLimit" value="1000"/>
+            </bean>
+        </property>
+
+        <!--有时可能希望在Ignite节点启动和停止的之前和之后执行特定的操作，这个可以通过
+    实现LifecycleBean接口实现，然后在spring的配置文件中通过指定IgniteConfiguration
+    的lifecycleBeans属性实现。-->
+        <property name="lifecycleBeans">
+            <list>
+                <bean class="com.zhaoliang.ignite.lifecycle.MyLifecycleBean"></bean>
+            </list>
+        </property>
+
+        <!--缓存可以每个缓存分别配置，通过设置CacheConfiguration的cacheMode属性实现：-->
+        <!--<property name="cacheConfiguration">
+            <bean class="org.apache.ignite.configuration.CollectionConfiguration">
+                <property name="name" value="cacheName"/>
+                &lt;!&ndash; Set cache mode. &ndash;&gt;
+                <property name="cacheMode" value="PARTITIONED"/>
+            </bean>
+
+        </property>-->
+
+        <property name="cacheConfiguration1">
+            <bean class="org.apache.ignite.configuration.CacheConfiguration">
+                <!-- Set a cache name. -->
+                <property name="name" value="cacheName"/>
+                <!-- Set cache mode. -->
+                <property name="cacheMode" value="PARTITIONED"/>
+                <!-- Atomic write order mode. -->
+                <property name="atomicWriteOrderMode" value="PRIMARY"/>
+                <!-- Number of backup nodes. -->
+                <property name="backups" value="1"/>
+                <!-- Set write synchronization mode. -->
+                <property name="writeSynchronizationMode" value="FULL_SYNC"/>
+            </bean>
+        </property>
+
+        <!--可以通过IgniteConfiguration.setClientMode(...)属性配置一个节点，或者为客户端，或者为服务端。-->
+        <property name="clientMode" value="true"/>
+    </bean>
+</beans>

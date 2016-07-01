@@ -7,7 +7,7 @@ import org.apache.ignite.lifecycle.LifecycleEventType;
 /**
  * Created by zhaoliang(weston_contribute@163.com) on 2016/6/11.
  */
-public class MyLifecycleBean implements LifecycleBean {
+public class MyLifecycleBean2 implements LifecycleBean {
     @Override
     public void onLifecycleEvent(LifecycleEventType evt) throws IgniteException {
         switch (evt) {
@@ -25,13 +25,13 @@ public class MyLifecycleBean implements LifecycleBean {
     }
 
     public static void beforeNodeStart() {
-        System.out.println("---------beforeNodeStart----------");
+        System.out.println("--------MyLifecycleBean2-beforeNodeStart----------");
         System.out.println("BEFORE_NODE_START");
         System.out.println("-------------------");
     }
 
     public static void afterNodeStop() {
-        System.out.println("--------afterNodeStop-----------");
+        System.out.println("-------MyLifecycleBean2-afterNodeStop-----------");
         System.out.println("after_Node_Stop");
         System.out.println("-------------------");
     }

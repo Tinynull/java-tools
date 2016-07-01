@@ -1,7 +1,9 @@
 package com.zhaoliang.ignite.lifecycle;
 
 import org.apache.ignite.Ignite;
+import org.apache.ignite.IgniteCache;
 import org.apache.ignite.Ignition;
+import org.apache.ignite.cluster.ClusterGroup;
 import org.apache.ignite.configuration.IgniteConfiguration;
 
 /**
@@ -10,18 +12,18 @@ import org.apache.ignite.configuration.IgniteConfiguration;
  * Created by zhaoliang(weston_contribute@163.com) on 2016/6/11.
  */
 public class LifeCycleBeanTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        IgniteConfiguration cfg = new IgniteConfiguration();
+        Ignite ignite = Ignition.start("D:\\github-weston\\java-tools\\ignite\\src\\main\\resources\\example-cache.xml");
+        ClusterGroup clusterGroup = ignite.cluster().forAttribute("ROLE", "worker");
+        clusterGroup.nodes().stream().forEach(clusterNode -> System.out.println(clusterNode.id()));
 
-        // Enable client mode.
-        cfg.setClientMode(true);
+        IgniteCache<Object, Object> myccache = ignite.getOrCreateCache("myccache");
+        myccache.put("hello","world");
 
-        cfg.setPeerClassLoadingEnabled(true);
+        Thread.sleep(5000L);
 
-        cfg.setLifecycleBeans(new MyLifecycleBean());
+        ignite.close();
 
-        // Start Ignite in client mode.
-        Ignite ignite = Ignition.start(cfg);
     }
 }
