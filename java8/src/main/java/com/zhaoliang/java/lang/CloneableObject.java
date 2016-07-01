@@ -9,14 +9,24 @@ public class CloneableObject implements Cloneable {
 
     private Clone2Object clone2Object;
 
+    private NoCloneableObject noCloneableObject;
+
     public String getHello() {
         return hello;
+    }
+
+    public NoCloneableObject getNoCloneableObject() {
+        return noCloneableObject;
+    }
+
+    public void setNoCloneableObject(NoCloneableObject noCloneableObject) {
+        this.noCloneableObject = noCloneableObject;
     }
 
     @Override
     protected CloneableObject clone() throws CloneNotSupportedException {
         CloneableObject closeableObject = null;
-        CloneableObject clone = (CloneableObject)super.clone();
+        CloneableObject clone = (CloneableObject) super.clone();
         return closeableObject;
     }
 
