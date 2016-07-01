@@ -5,7 +5,7 @@ import java.io.Closeable;
 /**
  * Created by zhaoliang(weston_contribute@163.com) on 2016/6/24.
  */
-public class CloseableObject implements Cloneable {
+public class CloneableObject implements Cloneable {
 
     private String hello;
 
@@ -16,9 +16,9 @@ public class CloseableObject implements Cloneable {
     }
 
     @Override
-    protected CloseableObject clone() throws CloneNotSupportedException {
-        CloseableObject closeableObject = null;
-        CloseableObject clone = (CloseableObject)super.clone();
+    protected CloneableObject clone() throws CloneNotSupportedException {
+        CloneableObject closeableObject = null;
+        CloneableObject clone = (CloneableObject)super.clone();
         return closeableObject;
     }
 
@@ -43,8 +43,8 @@ public class CloseableObject implements Cloneable {
     }
 
     public static void main(String[] args) throws CloneNotSupportedException {
-        System.out.println(CloseableObject.class.getName());
-        CloseableObject object = new CloseableObject();
+        System.out.println(CloneableObject.class.getName());
+        CloneableObject object = new CloneableObject();
         object.setHello("test");
 
         Clone2Object clone2Object = new Clone2Object();
@@ -52,7 +52,7 @@ public class CloseableObject implements Cloneable {
 
         object.setClone2Object(clone2Object);
 
-        CloseableObject clone = object.clone();
+        CloneableObject clone = object.clone();
 
         System.out.println(clone.toString());
         System.out.println(object.equals(clone));
