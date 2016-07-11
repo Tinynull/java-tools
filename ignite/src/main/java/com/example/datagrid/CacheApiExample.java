@@ -17,6 +17,9 @@
 
 package com.example.datagrid;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.concurrent.ConcurrentMap;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
@@ -45,7 +48,9 @@ public class CacheApiExample {
      * @throws IgniteException If example execution failed.
      */
     public static void main(String[] args) throws IgniteException {
-        try (Ignite ignite = Ignition.start("examples/config/example-ignite.xml")) {
+//        try (Ignite ignite = Ignition.start("examples/config/example-ignite.xml")) {
+        try (Ignite ignite = Ignition.start("D:\\github-weston\\java-tools\\ignite\\src\\main\\resources\\example-ignite.xml")) {
+//        try (Ignite ignite = Ignition.start(new File("D:\\github-weston\\java-tools\\ignite\\src\\main\\resources\\example-ignite.xml").getAbsolutePath())) {
             System.out.println();
             System.out.println(">>> Cache API example started.");
 

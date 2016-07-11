@@ -17,6 +17,8 @@
 
 package com.example.computegrid;
 
+import com.zhaoliang.ignite.Client;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import org.apache.ignite.Ignite;
@@ -71,5 +73,17 @@ public class ComputeCallableExample {
             System.out.println(">>> Total number of characters in the phrase is '" + sum + "'.");
             System.out.println(">>> Check all nodes for output (this node is also part of the cluster).");
         }
+    }
+
+    public static void affinityCallTest(){
+        Ignite ignite = Client.getIgnite2();
+/*        ignite.compute().affinityRun("myCache", companyId, () -> {
+            Company company = cache.get(companyId);
+            // Since we collocated persons with the company in the above example,
+            // access to the persons objects is local.
+            Person person1 = cache.get(personKey1);
+            Person person2 = cache.get(personKey2);
+            ...
+        });*/
     }
 }

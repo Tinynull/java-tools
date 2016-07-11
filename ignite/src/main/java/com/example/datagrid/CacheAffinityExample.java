@@ -17,6 +17,8 @@
 
 package com.example.datagrid;
 
+import com.zhaoliang.ignite.Client;
+
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
 import org.apache.ignite.IgniteCompute;
@@ -27,6 +29,7 @@ import org.apache.ignite.cache.affinity.Affinity;
 import org.apache.ignite.cluster.ClusterNode;
 import org.apache.ignite.configuration.CacheConfiguration;
 import org.apache.ignite.configuration.IgniteConfiguration;
+import org.apache.ignite.lang.IgniteCallable;
 import org.apache.ignite.lang.IgniteRunnable;
 
 import java.util.ArrayList;
@@ -63,7 +66,8 @@ public final class CacheAffinityExample {
      */
     public static void main(String[] args) throws IgniteException {
         // Start Ignite in client mode.
-        Ignite ignite = Ignition.start(new IgniteConfiguration().setClientMode(true).setPeerClassLoadingEnabled(true));
+//        Ignite ignite = Ignition.start(new IgniteConfiguration().setClientMode(true).setPeerClassLoadingEnabled(true));
+        Ignite ignite = Client.getIgnite2();
         System.out.println();
         System.out.println(">>> Cache affinity example started.");
 
@@ -105,8 +109,10 @@ public final class CacheAffinityExample {
             // This runnable will execute on the remote node where
             // data with the given key is located. Since it will be co-located
             // we can use local 'peek' operation safely.
-            ignite.compute().affinityRun(CACHE_NAME, key,
-                                         () -> System.out.println("Co-located using affinityRun [key= " + key + ", value=" + cache.localPeek(key) + ']'));
+//            ignite.compute().affinityRun(CACHE_NAME, key,
+//                                         () -> System.out.println("Co-located using affinityRun [key= " + key + ", value=" + cache.localPeek(key) + ']'));
+            String affinityCall = ignite.compute().affinityCall(CACHE_NAME, key, (IgniteCallable<String>) () -> cache.localPeek(key) + "-11111111111111");
+            System.out.println(">>> " + affinityCall);
         }
     }
 
