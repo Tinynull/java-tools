@@ -71,6 +71,13 @@
                         </goals>
                         <configuration>
 
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.zhaoliang.maven.shade.Base64Demo</mainClass>
+                                </transformer>
+                            </transformers>
+                            <outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar</outputFile>
+
 
                             <!--Artifacts to include/exclude from the final artifact. Artifacts
                             are denoted by composite identifiers of the general form groupId:artifactId:type:classifier.
@@ -79,7 +86,7 @@
                               is equivalent to groupId:*:*:*, groupId:artifactId is equivalent to
                               groupId:artifactId:*:* and groupId:artifactId:classifier is equivalent to
                               groupId:artifactId:*:classifier. For example:-->
-                            <!-- 我的理解：将依赖的包的所有累打包进来。
+                            <!-- 我的理解：将依赖的包的所有类打包进来。
                                 提供的形式：groupId:artifactId:type:classifier
                                 groupId=groupId:*:*:*
                                 groupId:artifactId=groupId:artifactId:*:*
