@@ -76,7 +76,7 @@
                                     <mainClass>com.zhaoliang.maven.shade.Base64Demo</mainClass>
                                 </transformer>
                             </transformers>
-                            <outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar</outputFile>
+                            <!--<outputFile>${project.build.directory}/${project.artifactId}-${project.version}-fat.jar</outputFile>-->
 
 
                             <!--Artifacts to include/exclude from the final artifact. Artifacts
@@ -133,13 +133,15 @@
 
                             </relocations>
 
+                            <createSourcesJar>true</createSourcesJar>
+
                             <!--The name of the shaded artifactId. So you may want to use a different
                             artifactId and keep the standard version. If the original artifactId was
                             "foo" then the final artifact would be something like foo-1.0.jar. So if
                             you change the artifactId you might have something like foo-special-1.0.jar.
                             Default value is: ${project.artifactId}.-->
 
-                            <shadedArtifactId>${project.artifactId}-special</shadedArtifactId>
+                            <!--<shadedArtifactId>${project.artifactId}-special</shadedArtifactId>-->
                         </configuration>
                     </execution>
                 </executions>
