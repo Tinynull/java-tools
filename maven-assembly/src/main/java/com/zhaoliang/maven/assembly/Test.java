@@ -5,8 +5,17 @@ package com.zhaoliang.maven.assembly;
  */
 public class Test {
     public Test(){}
+
+    private static String config = "hello.properties";
+
     public static void main(String[] args) {
         System.out.println("hello");
+        System.out.println(config);
+        test1();
+    }
+
+    private static void test1(){
+        System.out.println("test1");
     }
     public static void test2(){
         System.out.println("test2");
