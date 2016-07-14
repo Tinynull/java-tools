@@ -33,6 +33,7 @@
         <module>ignite</module>
         <module>plugin-test</module>
         <module>maven-shade</module>
+        <module>maven-assembly</module>
     </modules>
     <packaging>pom</packaging>
 
