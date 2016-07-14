@@ -13,12 +13,14 @@
 
     <build>
         <plugins>
+
+            <!--http://maven.apache.org/plugins/maven-assembly-plugin/assembly.html#class_dependencySet-->
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
                     <!-- not append assembly id in release file name -->
-                    <appendAssemblyId>false</appendAssemblyId>
+                    <appendAssemblyId>true</appendAssemblyId>
                     <descriptors>
                         <descriptor>src/main/assemble/package.xml</descriptor>
                     </descriptors>

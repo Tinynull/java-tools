@@ -6,6 +6,18 @@
         <format>zip</format>
         <format>jar</format>
     </formats>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>lib\</outputDirectory>
+            <includes>
+                <include>*:slf4j*</include>
+                <include>*:netty*</include>
+            </includes>
+<!--            <excludes>
+                <exclude>*:vertx*</exclude>
+            </excludes>-->
+        </dependencySet>
+    </dependencySets>
     <fileSets>
         <fileSet>
             <directory>${basedir}</directory>
@@ -17,34 +29,41 @@
                 <exclude>NOTICE.txt</exclude>
             </excludes>
         </fileSet>
+<!--        <fileSet>
+            <directory>${basedir}\target\lib</directory>
+            <outputDirectory>lib\</outputDirectory>
+            <excludes>
+                <exclude>vertx-auth-common-3.2.1.jar</exclude>
+                <exclude>vertx-core-3.2.1.jar</exclude>
+                <exclude>vertx-hazelcast-3.2.1.jar</exclude>
+                <exclude>vertx-web-3.2.1.jar</exclude>
+                <exclude>netty*</exclude>
+            </excludes>
+        </fileSet>-->
         <fileSet>
-            <directory>${basedir}/target/lib</directory>
-            <outputDirectory>lib</outputDirectory>
+            <directory>${project.basedir}\src\main\resources</directory>
+            <outputDirectory>conf\</outputDirectory>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/src/main/resources</directory>
-            <outputDirectory>conf/</outputDirectory>
-        </fileSet>
-        <fileSet>
-            <directory>${project.basedir}/src/main/bin</directory>
-            <outputDirectory>/bin</outputDirectory>
+            <directory>${project.basedir}\src\main\bin</directory>
+            <outputDirectory>bin\</outputDirectory>
             <fileMode>0755</fileMode>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}/src/main/conf</directory>
-            <outputDirectory>/conf</outputDirectory>
+            <directory>${project.basedir}\src\main\conf</directory>
+            <outputDirectory>conf\</outputDirectory>
             <fileMode>0755</fileMode>
         </fileSet>
     </fileSets>
     <files>
         <file>
             <source>LICENSE.txt</source>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory></outputDirectory>
             <filtered>true</filtered>
         </file>
         <file>
             <source>NOTICE.txt</source>
-            <outputDirectory>/</outputDirectory>
+            <outputDirectory></outputDirectory>
             <filtered>true</filtered>
         </file>
     </files>
