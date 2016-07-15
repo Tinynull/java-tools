@@ -1,20 +1,21 @@
 package com.zhaoliang.mybatis.xml;
 
+
+import com.zhaoliang.mybatis.dao.Customers;
+import com.zhaoliang.mybatis.dao.Orders;
+import com.zhaoliang.mybatis.dao.Products;
+import com.zhaoliang.mybatis.dao.Vendors;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
-import com.zhaoliang.mybatis.study.dao.Customers;
-import com.zhaoliang.mybatis.study.dao.Orders;
-import com.zhaoliang.mybatis.study.dao.Products;
-import com.zhaoliang.mybatis.study.dao.Vendors;
 
 public class Test1 {
 
