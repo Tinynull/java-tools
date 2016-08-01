@@ -16,6 +16,8 @@ public class StreamCreate {
     public static void main(String[] args) {
         StreamCreate streamCreate = new StreamCreate();
         streamCreate.test1();
+
+        Stream.generate(() -> "echo").limit(100).forEach(System.out::println);
     }
 
     public void test1() {
@@ -34,13 +36,13 @@ public class StreamCreate {
     /**
      * 该方法掩饰如何创建一个Stream.
      */
-    public void streamCreate(){
+    public void streamCreate() {
 
         /**
          * of method.
          */
         Stream<String> stream = Stream.of("a,g,g,e,g,4".split(","));
-        Stream<String> stream2 = Stream.of("aaa","bbb","ccc");
+        Stream<String> stream2 = Stream.of("aaa", "bbb", "ccc");
 
         /**
          * empty.
@@ -56,7 +58,7 @@ public class StreamCreate {
         /**
          * 迭代。产生一个无限长的序列。
          */
-        Stream<BigInteger> unlimit = Stream.iterate(BigInteger.ZERO,n -> n.add(BigInteger.ONE));
+        Stream<BigInteger> unlimit = Stream.iterate(BigInteger.ZERO, n -> n.add(BigInteger.ONE));
 
     }
 }

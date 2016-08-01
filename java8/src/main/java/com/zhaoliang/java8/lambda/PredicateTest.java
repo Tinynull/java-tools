@@ -53,8 +53,11 @@ public class PredicateTest {
 
     public static void test2(List<String> names) {
 
-        // 甚至可以用and()、or()和xor()逻辑函数来合并Predicate，
-        // 例如要找到所有以J开始，长度为四个字母的名字，你可以合并两个Predicate并传入
+        /**
+         * 甚至可以用and()、or()和xor()逻辑函数来合并Predicate，例如要找到所有
+         * 以J开始，长度为四个字母的名字，你可以合并两个Predicate并传入.
+         *
+         */
         Predicate<String> startsWithJ = (n) -> n.startsWith("J");
         Predicate<String> fourLetterLong = (n) -> n.length() == 4;
         names.stream()

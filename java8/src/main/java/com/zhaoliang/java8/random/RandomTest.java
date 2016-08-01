@@ -11,7 +11,8 @@ import java.util.stream.IntStream;
 public class RandomTest {
 
     public static void main(String[] args) {
-        test1();
+//        test1();
+        test2();
     }
 
     private static void test1() {
@@ -28,5 +29,7 @@ public class RandomTest {
         randomBetween0And99.stream().forEach(System.out::println);
     }
 
-    private static void test2(){}
+    private static void test2() {
+        new Random().ints(0, 10).limit(100).forEach(System.out::println);
+    }
 }
