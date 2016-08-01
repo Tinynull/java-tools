@@ -2,7 +2,6 @@ package com.zhaoliang.ignite;
 
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCluster;
-import org.apache.ignite.IgniteCompute;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.cluster.ClusterMetrics;
 import org.apache.ignite.cluster.ClusterNode;

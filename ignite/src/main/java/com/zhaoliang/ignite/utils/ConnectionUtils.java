@@ -20,7 +20,6 @@ public class ConnectionUtils {
         cfg.setPeerClassLoadingEnabled(true);
 
         // Start Ignite in client mode.
-        Ignite ignite = Ignition.start(cfg);
-        return ignite;
+        return Ignition.start(cfg);
     }
 }
