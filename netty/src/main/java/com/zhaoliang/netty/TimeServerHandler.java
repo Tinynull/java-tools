@@ -1,7 +1,5 @@
 package com.zhaoliang.netty;
 
-import java.util.List;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -9,6 +7,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
+ * handle the received msg.
  * Created by zhaoliang(weston_contribute@163.com) on 2016/8/1.
  */
 public class TimeServerHandler extends ChannelInboundHandlerAdapter {
