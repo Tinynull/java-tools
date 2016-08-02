@@ -1,4 +1,4 @@
-package com.zhaoliang.netty;
+package com.zhaoliang.netty.pojo;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -40,10 +40,7 @@ public class DiscardServer {
              .childHandler(new ChannelInitializer<SocketChannel>() {
                  @Override
                  public void initChannel(SocketChannel ch) throws Exception {
-//                     ch.pipeline().addLast(new DiscardServerHandler());
-//                     ch.pipeline().addLast(new EchoServerHandler());
                      ch.pipeline().addLast(new TimeServerHandler());
-//                     ch.pipeline().addLast(new TimeServerHandlerPojo());
                  }
              })
              .option(ChannelOption.SO_BACKLOG, 128)
