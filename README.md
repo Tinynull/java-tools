@@ -5,3 +5,6 @@
 
 ## 2. bundle
 > 打包bundle的jar包的demo，支持OSGI。
+
+## 3. netty
+> 异步非阻塞IO框架。
