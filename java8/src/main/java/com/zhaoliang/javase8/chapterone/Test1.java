@@ -42,6 +42,11 @@ public class Test1 {
     }
 
 
+    /**
+     * 传统的方式：使用内部类的方式。
+     * @param file
+     * @return
+     */
     public File[] subDirectory2(File file) {
         return file.listFiles(new FileFilter() {
             @Override
@@ -51,10 +56,20 @@ public class Test1 {
         });
     }
 
+    /**
+     * lambda表达式。
+     * @param file
+     * @return
+     */
     public File[] subDirectorywithLambda1(File file) {
         return file.listFiles(pathname -> pathname.isDirectory());
     }
 
+    /**
+     * 简洁的lambda表达式。
+     * @param file
+     * @return
+     */
     public File[] subDirectorywithLambda2(File file) {
         return file.listFiles(File::isDirectory);
     }

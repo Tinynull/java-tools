@@ -34,6 +34,8 @@
         <module>plugin-test</module>
         <module>maven-shade</module>
         <module>maven-assembly</module>
+        <module>spring-boot</module>
+        <module>netty</module>
     </modules>
     <packaging>pom</packaging>
 
