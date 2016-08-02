@@ -3,6 +3,7 @@ package com.zhaoliang.netty;
 import java.util.Date;
 
 /**
+ * this is a object
  * Created by zhaoliang(weston_contribute@163.com) on 2016/8/1.
  */
 public class UnixTime {
