@@ -21,6 +21,10 @@ public class MultiplexerTimeServer implements Runnable {
     private ServerSocketChannel serverSocketChannel;
     private volatile boolean stop;
 
+    /**
+     * 初始化多路复用器、监听端口。
+     * @param port 端口。
+     */
     public MultiplexerTimeServer(int port) {
         try {
             selector = Selector.open();
