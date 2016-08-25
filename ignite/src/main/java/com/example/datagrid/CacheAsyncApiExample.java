@@ -17,8 +17,6 @@
 
 package com.example.datagrid;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
 import org.apache.ignite.IgniteException;
@@ -26,6 +24,9 @@ import org.apache.ignite.Ignition;
 import org.apache.ignite.cache.CacheMode;
 import org.apache.ignite.configuration.CacheConfiguration;
 import org.apache.ignite.lang.IgniteFuture;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * This example demonstrates some of the cache rich API capabilities.
@@ -47,7 +48,8 @@ public class CacheAsyncApiExample {
      * @throws IgniteException If example execution failed.
      */
     public static void main(String[] args) throws IgniteException {
-        try (Ignite ignite = Ignition.start("examples/config/example-ignite.xml")) {
+//        try (Ignite ignite = Ignition.start("ignite/examples/config/example-ignite.xml")) {
+        try (Ignite ignite = Ignition.start()) {
             System.out.println();
             System.out.println(">>> Cache asynchronous API example started.");
 

@@ -84,7 +84,7 @@
     <!--有时可能希望在Ignite节点启动和停止的之前和之后执行特定的操作，这个可以通过
     实现LifecycleBean接口实现，然后在spring的配置文件中通过指定IgniteConfiguration
     的lifecycleBeans属性实现。-->
-    <bean class="org.apache.ignite.IgniteConfiguration">
+    <bean class="org.apache.ignite.configuration.IgniteConfiguration">
         <property name="lifecycleBeans">
             <list>
                 <bean class="com.zhaoliang.ignite.lifecycle.MyLifecycleBean"></bean>
