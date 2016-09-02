@@ -7,6 +7,12 @@ package com.zhaoliang.annotation;
  */
 public class MyAnnotationTest {
 
+    @MyAnnotation(name = "test")
+    private String china;
+
+    @MyAnnotation(name = "test")
+    public String hello;
+
     @MyAnnotation
     public void info() {
         System.out.println("info");
@@ -17,7 +23,7 @@ public class MyAnnotationTest {
         System.out.println("test");
     }
 
-    public void commonMethod(){
+    public void commonMethod() {
 
     }
 }
