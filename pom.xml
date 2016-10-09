@@ -36,6 +36,7 @@
         <module>maven-assembly</module>
         <module>spring-boot</module>
         <module>netty</module>
+        <module>junit</module>
     </modules>
     <packaging>pom</packaging>
 
