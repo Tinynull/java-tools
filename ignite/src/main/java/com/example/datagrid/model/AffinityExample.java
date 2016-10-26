@@ -30,9 +30,10 @@ public class AffinityExample {
         System.out.println(">>> Cache affinity example started.");
 
         CacheConfiguration<String, Company> companyCfg = new CacheConfiguration<>();
-        companyCfg.setCacheMode(CacheMode.PARTITIONED);
-        companyCfg.setName(CACHE_NAME_COMPANY);
+        companyCfg.setCacheMode(CacheMode.PARTITIONED).setName(CACHE_NAME_COMPANY);
         IgniteCache<String, Company> companyIgniteCache = ignite.getOrCreateCache(companyCfg);
+
+
 
         CacheConfiguration<AffinityKey<String>, Person> personCfg = new CacheConfiguration<>();
         personCfg.setName(CACHE_NAME_PERSON);
@@ -54,8 +55,8 @@ public class AffinityExample {
         }
 
         System.out.println("**************************");
-//        System.out.println(personIgniteCache.get(new AffinityKey<>("company0")));
-        System.out.println(ignite.cache(CACHE_NAME_PERSON).get("person0"));
+        System.out.println(personIgniteCache.get(new AffinityKey<>("company0")));
+//        System.out.println(ignite.cache(CACHE_NAME_PERSON).get("person0"));
         System.out.println("**************************");
 
         System.out.println("**************************");
