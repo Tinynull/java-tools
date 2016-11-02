@@ -12,13 +12,13 @@ import org.junit.runners.MethodSorters;
 public class TestMethodOrder {
 
     @Test
-    public void testA() {
-        System.out.println("first");
+    public void testB() {
+        System.out.println("second");
     }
 
     @Test
-    public void testB() {
-        System.out.println("second");
+    public void testA() {
+        System.out.println("first");
     }
 
     @Test
