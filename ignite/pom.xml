@@ -14,6 +14,14 @@
         <ignite.version>1.7.0</ignite.version>
     </properties>
 
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.ignite</groupId>
@@ -35,7 +43,6 @@
             <artifactId>ignite-visor-console</artifactId>
             <version>${ignite.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.ignite/ignite-cassandra -->
         <dependency>
             <groupId>org.apache.ignite</groupId>
             <artifactId>ignite-cassandra</artifactId>
