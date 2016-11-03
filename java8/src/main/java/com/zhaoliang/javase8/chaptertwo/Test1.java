@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * execise.
+ * exercise。
  *
  * Created by zhaoliang(weston_contribute@163.com) on 2016/5/25.
  */

@@ -26,7 +26,7 @@ public class SubStream {
         Stream.generate(() -> "echo").limit(100).distinct().forEach(System.out::println);
 
         /**
-         *
+         * sorted() 排序。
          */
         Stream.generate(Math::random).limit(100).sorted().forEach(System.out::println);
     }

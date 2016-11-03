@@ -5,6 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * regex.
+ *
  * Created by zhaoliang(weston_contribute@163.com) on 2016/7/6.
  */
 public class Regex {
@@ -59,7 +61,7 @@ public class Regex {
             System.out.println("---------------");
             strs.add(m.group(1));
         }
-//        strs.stream().forEach(s -> System.out.println(s));
+        strs.stream().forEach(s -> System.out.println(s));
     }
 
     private static void replace(boolean isTest) {

@@ -1,10 +1,8 @@
 package com.zhaoliang.javase8.chaptertwo;
 
-import java.util.ArrayList;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
 
 /**
  * 函数式接口使用。
@@ -13,17 +11,17 @@ import java.util.function.UnaryOperator;
  */
 public class FunctionInterface {
 
-    public static Function<Integer, Integer> power = x -> x * x;
+    private static Function<Integer, Integer> power = x -> x * x;
 
-    public static Integer changeNumber(Integer integer, Function<Integer, Integer> function) {
+    private static Integer changeNumber(Integer integer, Function<Integer, Integer> function) {
         return function.apply(integer);
     }
 
-    public static Integer changeNumber2(int a, String b, BiFunction<Integer, String, Integer> biFunction) {
+    private static Integer changeNumber2(int a, String b, BiFunction<Integer, String, Integer> biFunction) {
         return biFunction.apply(a, b);
     }
 
-    public static boolean isTure(Integer a, Integer b, Predicate<Integer> predicate) {
+    private static boolean isTrue(Integer a, Integer b, Predicate<Integer> predicate) {
         return predicate.test(a) && predicate.test(b);
     }
 
@@ -31,6 +29,6 @@ public class FunctionInterface {
         System.out.println(changeNumber(10, x -> x * 10 + 10));
         System.out.println(changeNumber(1110, power));
         System.out.println(changeNumber2(12, "sdf", (x, y) -> x * y.length()));
-        System.out.println(isTure(2, 5, x -> x < 5));
+        System.out.println(isTrue(2, 5, x -> x < 5));
     }
 }

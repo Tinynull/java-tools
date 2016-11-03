@@ -1,42 +1,23 @@
 package com.zhaoliang.javase8.chaptertwo;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
  * stream create.
- *
+ * <p>
  * Created by zhaoliang{weston_contribute@163.com} on 2016/5/24.
  */
 public class StreamCreate {
 
     public static void main(String[] args) {
-        StreamCreate streamCreate = new StreamCreate();
-        streamCreate.test1();
-
         Stream.generate(() -> "echo").limit(100).forEach(System.out::println);
     }
 
-    public void test1() {
-        List<String> list = new ArrayList<>();
-        list.add("aaaa1");
-        list.add("aaaaa2");
-        list.add("aaaaaa3");
-        list.add("aaaaaaa4");
-        list.add("aaaaaaaa5");
-        list.add("aaaaaaaaa6");
-
-        List<String> collect = list.stream().filter(s -> s.length() > 6).collect(Collectors.toList());
-        System.out.println(collect);
-    }
-
     /**
-     * 该方法掩饰如何创建一个Stream.
+     * 该方法演示如何创建一个Stream.
      */
-    public void streamCreate() {
+    public static void streamCreate() {
 
         /**
          * of method.
@@ -52,7 +33,7 @@ public class StreamCreate {
         /**
          * 无限循环使用generate中的方法。
          */
-        Stream<String> echos = Stream.generate(() -> "echo");
+        Stream<String> echos = Stream.generate(() -> "echo").limit(3000);
         Stream<Double> randoms = Stream.generate(Math::random);
 
         /**
