@@ -27,6 +27,4 @@ public class Demo<E> {
         System.out.println("demo.fun2(\"hello\") = " + demo.fun2("hello"));
         System.out.println("demo.fun3(\"hello\".hashCode()) = " + demo.fun3("hello".hashCode()));
     }
-
-
 }
