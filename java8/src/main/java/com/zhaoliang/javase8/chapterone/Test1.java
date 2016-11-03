@@ -44,6 +44,7 @@ public class Test1 {
 
     /**
      * 传统的方式：使用内部类的方式。
+     *
      * @param file
      * @return
      */
@@ -58,6 +59,7 @@ public class Test1 {
 
     /**
      * lambda表达式。
+     *
      * @param file
      * @return
      */
@@ -67,6 +69,7 @@ public class Test1 {
 
     /**
      * 简洁的lambda表达式。
+     *
      * @param file
      * @return
      */

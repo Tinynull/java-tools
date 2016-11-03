@@ -1,14 +1,14 @@
 package com.zhaoliang.java8.lambda;
 
 import org.junit.After;
-
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.NoSuchElementException;
 import java.util.Optional;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * Created by zhaoliang(weston_contribute@163.com) on 2016/4/23.
@@ -67,7 +67,7 @@ public class OptionalTestTest {
      * @throws Exception
      */
     @Test
-    public void testOptinalMap() throws Exception {
+    public void testOptionalMap() throws Exception {
         final Optional<String> test = Optional.of("test");
         final Optional<String> optional = test.map(s -> s.toUpperCase());
         assertNotEquals(test, optional);
@@ -90,15 +90,16 @@ public class OptionalTestTest {
      */
     @Test
     public void test5() throws Exception {
-        final Optional<String> optional = Optional.of("test").flatMap(s -> Optional.of(s.toUpperCase()));
-        assertEquals("TEST",optional.get());
+        final Optional<String> optional = Optional.of("test")
+                .flatMap(s -> Optional.of(s.toUpperCase()));
+        assertEquals("TEST", optional.get());
     }
 
     @Test
     public void test6() throws Exception {
-        final Optional<String> name = Optional.of("ziang");
+        final Optional<String> name = Optional.of("hello");
         Optional<String> longName = name.filter((value) -> value.length() > 6);
-        System.out.println(longName.orElse("The name is less than 6 characters"));//输出Sanaulla
+        System.out.println(longName.orElse("The name is less than 6 characters"));
 
     }
 }
