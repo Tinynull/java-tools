@@ -20,7 +20,7 @@ public class Main {
         testOptions(args);
     }
 
-    public static void testOptions(String[] args) {
+    private static void testOptions(String[] args) {
         Options options = new Options();
 
         // 参数false表示是否有参数。
@@ -42,7 +42,7 @@ public class Main {
 
         HelpFormatter hf = new HelpFormatter();
         hf.setWidth(110);
-        CommandLine commandLine = null;
+        CommandLine commandLine;
         CommandLineParser parser = new DefaultParser();
         try {
             commandLine = parser.parse(options, args);
