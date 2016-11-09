@@ -19,7 +19,6 @@
         <module>gson</module>
         <module>mybatis</module>
         <module>pingin4j</module>
-        <module>jersey</module>
         <module>zookeeper</module>
         <module>slf4j</module>
         <module>thread</module>
