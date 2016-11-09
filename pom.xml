@@ -16,10 +16,8 @@
         <module>commons-io</module>
         <module>commons-lang3</module>
         <module>curator</module>
-        <module>gson</module>
         <module>mybatis</module>
         <module>pingin4j</module>
-        <module>zookeeper</module>
         <module>slf4j</module>
         <module>thread</module>
         <module>vertx</module>
@@ -28,10 +26,8 @@
         <module>java8</module>
         <module>commons-configuration2</module>
         <module>ignite</module>
-        <module>plugin-test</module>
         <module>maven-shade</module>
         <module>maven-assembly</module>
-        <module>spring-boot</module>
         <module>netty</module>
         <module>junit</module>
         <module>maven-bundle</module>
@@ -64,24 +60,12 @@
             <groupId>io.vertx</groupId>
             <artifactId>vertx-web</artifactId>
             <version>3.2.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.vertx</groupId>
-                    <artifactId>vertx-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-hazelcast</artifactId>
             <version>3.2.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.vertx</groupId>
-                    <artifactId>vertx-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
