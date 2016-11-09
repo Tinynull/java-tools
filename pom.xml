@@ -13,7 +13,6 @@
         <module>commons-cli</module>
         <module>commons-codec</module>
         <module>commons-configuration</module>
-        <module>commons-io</module>
         <module>commons-lang3</module>
         <module>curator</module>
         <module>mybatis</module>
