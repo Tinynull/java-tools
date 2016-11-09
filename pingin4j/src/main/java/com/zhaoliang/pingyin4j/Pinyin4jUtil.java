@@ -15,11 +15,9 @@ public class Pinyin4jUtil {
 	 * @param src 汉字字符串。
 	 * @return String
 	 */
-	public static String getPinYin(String src) {
+	private static String getPinYin(String src) {
 		char[] t1 = src.toCharArray();
-		// System.out.println(t1.length);
 		String[] t2;
-		// System.out.println(t2.length);
 		// 设置汉字拼音输出的格式
 		HanyuPinyinOutputFormat t3 = new HanyuPinyinOutputFormat();
 		t3.setCaseType(HanyuPinyinCaseType.LOWERCASE);
@@ -29,7 +27,6 @@ public class Pinyin4jUtil {
 		try {
 			for (char aT1 : t1) {
 				// 判断能否为汉字字符
-				// System.out.println(t1[i]);
 				if (Character.toString(aT1).matches("[\\u4E00-\\u9FA5]+")) {
 					t2 = PinyinHelper.toHanyuPinyinStringArray(aT1, t3);// 将汉字的几种全拼都存到t2数组中
 					t4 += t2[0];// 取出该汉字全拼的第一种读音并连接到字符串t4后
@@ -50,7 +47,7 @@ public class Pinyin4jUtil {
 	 * @param str 中文字符串。
 	 * @return String
 	 */
-	public static String getPinYinHeadChar(String str) {
+	private static String getPinYinHeadChar(String str) {
 		String convert = "";
 		for (int j = 0; j < str.length(); j++) {
 			char word = str.charAt(j);
@@ -71,7 +68,7 @@ public class Pinyin4jUtil {
 	 * @param cnStr 中文字符串。
 	 * @return String
 	 */
-	public static String getCnASCII(String cnStr) {
+	private static String getCnASCII(String cnStr) {
 		StringBuilder strBuf = new StringBuilder();
 		// 将字符串转换成字节序列
 		byte[] bGBK = cnStr.getBytes();
@@ -84,7 +81,7 @@ public class Pinyin4jUtil {
 	}
 
 	public static void main(String[] args) {
-		String cnStr = "中国";
+		String cnStr = "饮鸩止渴";
 		System.out.println(getPinYin(cnStr));
 		System.out.println(getPinYinHeadChar(cnStr));
 		System.out.println(getCnASCII(cnStr));
