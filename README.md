@@ -17,3 +17,20 @@
 
 ## 6. ignite
 > Apache Ignite内存数组组织框架是一个高性能、集成和分布式的内存计算和事务平台，用于大规模的数据集处理，比传统的基于磁盘或闪存的技术具有更高的性能，同时他还为应用和不同的数据源之间提供高性能、分布式内存中数据组织管理的功能。
+
+## 7. javatuples
+> javatuples是最简单的Java类库之一。设计目标是提供一组在Java中可以使用“tuples”的类。
+一个tuple就是一个相互之间不需要有关联的对象的序列。比如：[23, “Saturn”, java.sql.Connection@li734s]可以看做是一个具有三个元素的tuple（一个triplet），包含一个Integer、一个String、一个JDBC Connection对象。
+
+javatuples支持以下几种类型：
+
+- Unit（1个元素）
+- Pair<a,b>（2个元素）
+- Triplet<a,b,c>（3个元素）
+- Quartet<a,b,c,d>（4个元素）
+- Quintet<a,b,c,d,e>（5个元素）
+- Sextet<a,b,c,d,e,f>（6个元素）
+- Septet<a,b,c,d,e,f,g>（7个元素）
+- Octet<a,b,c,d,e,f,g,h>（8个元素）
+- Ennead<a,b,c,d,e,f,g,h,i>（9个元素）
+- Decade<a,b,c,d,e,f,g,h,i,j>（10个元素）
