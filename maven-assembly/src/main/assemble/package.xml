@@ -10,12 +10,12 @@
         <dependencySet>
             <outputDirectory>lib\</outputDirectory>
             <includes>
-                <include>*:slf4j*</include>
-                <include>*:netty*</include>
+                <include>org.apache.commons:*</include>
+                <include>*:javatuples:*</include>
             </includes>
-<!--            <excludes>
-                <exclude>*:vertx*</exclude>
-            </excludes>-->
+           <excludes>
+                <exclude>*:commons-lang:*</exclude>
+            </excludes>
         </dependencySet>
     </dependencySets>
     <fileSets>
@@ -25,8 +25,8 @@
                 <include>*.txt</include>
             </includes>
             <excludes>
-                <exclude>LICENSE.txt</exclude>
-                <exclude>NOTICE.txt</exclude>
+                <exclude>*.iml</exclude>
+                <exclude>excludefile.txt</exclude>
             </excludes>
         </fileSet>
 <!--        <fileSet>
