@@ -53,7 +53,6 @@
         <module>java8</module>
         <module>commons-configuration2</module>
         <module>ignite</module>
-        <module>maven-shade</module>
         <module>maven-assembly</module>
         <module>netty</module>
         <module>junit</module>
