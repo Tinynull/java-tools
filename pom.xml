@@ -55,7 +55,6 @@
         <module>ignite</module>
         <module>netty</module>
         <module>junit</module>
-        <module>maven-bundle</module>
         <module>javatuples</module>
     </modules>
 
