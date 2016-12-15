@@ -3,22 +3,20 @@
 ## 1. Akka 
 > 是一个用 Scala 编写的库，用于简化编写容错的、高可伸缩性的 Java 和 Scala 的 Actor 模型应用。
 
-## 2. maven_bundle
-> 打包bundle的jar包的demo，支持OSGI。
 
-## 3. netty
+## 2. netty
 > 异步非阻塞IO框架。
 
-## 4. httpclient
+## 3. httpclient
 > HTTP 协议可能是现在 Internet 上使用得最多、最重要的协议了，越来越多的 Java 应用程序需要直接通过 HTTP 协议来访问网络资源。虽然在 JDK 的 java net包中已经提供了访问 HTTP 协议的基本功能，但是对于大部分应用程序来说，JDK 库本身提供的功能还不够丰富和灵活。HttpClient 是 Apache Jakarta Common 下的子项目，用来提供高效的、最新的、功能丰富的支持 HTTP 协议的客户端编程工具包，并且它支持 HTTP 协议最新的版本和建议。HttpClient 已经应用在很多的项目中，比如 Apache Jakarta 上很著名的另外两个开源项目 Cactus 和 HTMLUnit 都使用了 HttpClient。现在HttpClient最新版本为 HttpClient 4.5 (GA)
 
-## 5. commons-lang3
+## 4. commons-lang3
 > 跟java.lang这个包的作用类似，Commons Lang这一组API也是提供一些基础的、通用的操作和处理，如自动生成toString()的结果、自动实现hashCode()和equals()方法、数组操作、枚举、日期和时间的处理等等。
 
-## 6. ignite
+## 5. ignite
 > Apache Ignite内存数组组织框架是一个高性能、集成和分布式的内存计算和事务平台，用于大规模的数据集处理，比传统的基于磁盘或闪存的技术具有更高的性能，同时他还为应用和不同的数据源之间提供高性能、分布式内存中数据组织管理的功能。
 
-## 7. javatuples
+## 6. javatuples
 > javatuples是最简单的Java类库之一。设计目标是提供一组在Java中可以使用“tuples”的类。
 一个tuple就是一个相互之间不需要有关联的对象的序列。比如：[23, “Saturn”, java.sql.Connection@li734s]可以看做是一个具有三个元素的tuple（一个triplet），包含一个Integer、一个String、一个JDBC Connection对象。
 
