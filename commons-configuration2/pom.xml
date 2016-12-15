@@ -12,7 +12,6 @@
     <artifactId>commons-configuration2</artifactId>
 
     <build>
-
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

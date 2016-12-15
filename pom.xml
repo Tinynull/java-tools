@@ -56,6 +56,8 @@
         <module>netty</module>
         <module>junit</module>
         <module>javatuples</module>
+        <module>py4j</module>
+        <module>jackson-core</module>
     </modules>
 
     <dependencyManagement>
@@ -151,6 +153,16 @@
     </dependencyManagement>
 
     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${compiler.version}</source>
+                    <target>${compiler.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
         <pluginManagement>
             <plugins>
                 <plugin>

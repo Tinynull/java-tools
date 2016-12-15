@@ -18,6 +18,7 @@ public class ClientTest {
 //		Fundamentals.testResponse2();
 //		Fundamentals.testResponse3();
 //		Fundamentals.testResponse4();
+		HTTPAuthentication.testUserCredentials1();
 		
 		try {
 			ConnectionManagement.testManagedConnections();
