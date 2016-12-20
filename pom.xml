@@ -55,7 +55,6 @@
         <module>ignite</module>
         <module>netty</module>
         <module>junit</module>
-        <module>javatuples</module>
         <module>py4j</module>
         <module>jackson-core</module>
     </modules>

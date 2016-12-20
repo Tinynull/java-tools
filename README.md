@@ -13,10 +13,7 @@
 ## 4. commons-lang3
 > 跟java.lang这个包的作用类似，Commons Lang这一组API也是提供一些基础的、通用的操作和处理，如自动生成toString()的结果、自动实现hashCode()和equals()方法、数组操作、枚举、日期和时间的处理等等。
 
-## 5. ignite
-> Apache Ignite内存数组组织框架是一个高性能、集成和分布式的内存计算和事务平台，用于大规模的数据集处理，比传统的基于磁盘或闪存的技术具有更高的性能，同时他还为应用和不同的数据源之间提供高性能、分布式内存中数据组织管理的功能。
-
-## 6. javatuples
+## 5. javatuples
 > javatuples是最简单的Java类库之一。设计目标是提供一组在Java中可以使用“tuples”的类。
 一个tuple就是一个相互之间不需要有关联的对象的序列。比如：[23, “Saturn”, java.sql.Connection@li734s]可以看做是一个具有三个元素的tuple（一个triplet），包含一个Integer、一个String、一个JDBC Connection对象。
 
