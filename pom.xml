@@ -57,6 +57,7 @@
         <module>junit</module>
         <module>py4j</module>
         <module>jackson-core</module>
+        <module>javatuples</module>
     </modules>
 
     <dependencyManagement>
