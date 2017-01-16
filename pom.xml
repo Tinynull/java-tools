@@ -33,6 +33,8 @@
 
         <!--parameters-->
         <compiler.version>1.8</compiler.version>
+
+        <github.global.server>github</github.global.server>
     </properties>
 
     <modules>
@@ -154,6 +156,28 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <host>api.github.com</host>
+                    <branch>refs/heads/master</branch>
+                    <message>Creating site for ${project.version}</message>
+                    <repositoryName>java-tools</repositoryName>
+                    <repositoryOwner>github</repositoryOwner>
+                    <server>${github.global.server}</server>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>site</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
