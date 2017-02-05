@@ -4,6 +4,7 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 
 /**
+ * deploy verticle with future.
  * Created by zhaoliang(weston_contribute@163.com) on 2016/4/21.
  */
 public class MyVerticle extends AbstractVerticle {

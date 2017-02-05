@@ -51,7 +51,7 @@ public class ExecBlockingExample extends AbstractVerticle {
 
                 if (res.succeeded()) {
 
-                    request.response().putHeader("content-type", "text/plain").end(String.valueOf(res.result().intValue() + 10));
+                    request.response().putHeader("content-type", "text/plain").end(String.valueOf(res.result() + 10));
 
                 } else {
                     res.cause().printStackTrace();
