@@ -31,9 +31,7 @@ public class ExecBlockingExample extends AbstractVerticle {
             vertx.<Integer>executeBlocking(future -> {
 
                 // Do the blocking operation in here
-
                 // Imagine this was a call to a blocking API to get the result
-
                 if(aBoolean){
                     aBoolean = false;
                 }else{
@@ -44,15 +42,10 @@ public class ExecBlockingExample extends AbstractVerticle {
                     }
                 }
                 int result = random.nextInt(40);
-
                 future.complete(result);
-
             }, res -> {
-
                 if (res.succeeded()) {
-
                     request.response().putHeader("content-type", "text/plain").end(String.valueOf(res.result() + 10));
-
                 } else {
                     res.cause().printStackTrace();
                 }
