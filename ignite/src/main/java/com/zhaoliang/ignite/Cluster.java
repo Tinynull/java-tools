@@ -6,8 +6,12 @@ import org.apache.ignite.Ignition;
 import org.apache.ignite.cluster.ClusterMetrics;
 import org.apache.ignite.cluster.ClusterNode;
 import org.apache.ignite.configuration.IgniteConfiguration;
+import org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi;
+import org.apache.ignite.spi.discovery.tcp.ipfinder.vm.TcpDiscoveryVmIpFinder;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Cluster
@@ -16,13 +20,19 @@ import java.util.Collection;
 public class Cluster {
     public static void main(String[] args) {
 
-        // start client
+        TcpDiscoverySpi spi = new TcpDiscoverySpi();
+        TcpDiscoveryVmIpFinder ipFinder = new TcpDiscoveryVmIpFinder();
+        ipFinder.setAddresses(Collections.singletonList("127.0.0.1"));
+//        ipFinder.setAddresses(Collections.singletonList("47.92.101.233"));
+        spi.setIpFinder(ipFinder);
         IgniteConfiguration cfg = new IgniteConfiguration();
+        cfg.setDiscoverySpi(spi);
 
         // Enable client mode.
         cfg.setClientMode(true);
 
-        cfg.setPeerClassLoadingEnabled(true);
+        cfg.setPeerClassLoadingEnabled(false);
+
 
         // Start Ignite in client mode.
         Ignite ignite = Ignition.start(cfg);

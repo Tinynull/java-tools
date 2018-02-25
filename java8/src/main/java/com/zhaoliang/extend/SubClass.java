@@ -10,7 +10,7 @@ public class SubClass implements SuperClass1,SuperClass2 {
     }
 
     public static void main(String[] args) {
-        SubClass subClass = new SubClass();
-        System.out.println(subClass.hello());
+        SubClass theSubClass = new SubClass();
+        System.out.println(theSubClass.hello());
     }
 }

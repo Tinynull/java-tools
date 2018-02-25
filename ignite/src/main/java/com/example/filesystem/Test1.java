@@ -28,8 +28,6 @@ public class Test1 {
         FileSystemConfiguration fileSystemCfg = new FileSystemConfiguration();
         fileSystemCfg.setDefaultMode(IgfsMode.PRIMARY);
         fileSystemCfg.setName("fileSystem1");
-        fileSystemCfg.setMetaCacheName("myMetaCache");
-        fileSystemCfg.setDataCacheName("myDataCache");
 
         IgfsIpcEndpointConfiguration endpointCfg = new IgfsIpcEndpointConfiguration();
         endpointCfg.setType(IgfsIpcEndpointType.TCP);

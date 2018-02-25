@@ -61,6 +61,7 @@
         <module>jackson-core</module>
         <module>javatuples</module>
         <module>shiro</module>
+        <module>stanfordNLP</module>
     </modules>
 
     <dependencyManagement>

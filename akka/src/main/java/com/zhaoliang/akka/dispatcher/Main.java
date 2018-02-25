@@ -9,4 +9,5 @@ import scala.concurrent.ExecutionContext;
 public class Main {
     ActorSystem system = ActorSystem.create("test");
     final ExecutionContext ex = system.dispatchers().lookup("cluster-dispatcher");
+    String s;
 }
