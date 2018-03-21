@@ -21,7 +21,7 @@ public class TimeClientHandle implements Runnable {
     private volatile boolean stop;
 
     public TimeClientHandle(String host, int port) {
-        this.host = host != null ? host : "127.0.0.1";
+        this.host = (host != null) ? host : "127.0.0.1";
         this.port = port;
         try {
             selector = Selector.open();
@@ -85,7 +85,7 @@ public class TimeClientHandle implements Runnable {
             if (key.isConnectable()) {
                 if (sc.finishConnect()) {
                     sc.register(selector, SelectionKey.OP_READ);
-                    doWrite(sc);
+                    writeQueryCommand(sc);
                 } else {
                     System.exit(1);
                 }
@@ -112,13 +112,13 @@ public class TimeClientHandle implements Runnable {
     private void doConnect() throws IOException {
         if (socketChannel.connect(new InetSocketAddress(host, port))) {
             socketChannel.register(selector, SelectionKey.OP_READ);
-            doWrite(socketChannel);
+            writeQueryCommand(socketChannel);
         } else {
             socketChannel.register(selector, SelectionKey.OP_CONNECT);
         }
     }
 
-    private void doWrite(SocketChannel sc) throws IOException {
+    private void writeQueryCommand(SocketChannel sc) throws IOException {
         byte[] req = "QUERY TIME ORDER".getBytes();
         ByteBuffer writeBuffer = ByteBuffer.allocate(req.length);
         writeBuffer.put(req);

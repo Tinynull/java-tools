@@ -3,14 +3,12 @@ package com.zhaoliang.nio;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectableChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.Set;
 
 /**
  * Created by zhaoliang(weston_contribute@163.com) on 2016/8/10.
@@ -23,6 +21,7 @@ public class MultiplexerTimeServer implements Runnable {
 
     /**
      * 初始化多路复用器、监听端口。
+     *
      * @param port 端口。
      */
     public MultiplexerTimeServer(int port) {
@@ -48,11 +47,16 @@ public class MultiplexerTimeServer implements Runnable {
         while (!stop) {
             try {
                 selector.select(1000);
-                Set<SelectionKey> selectionKeys = selector.selectedKeys();
-                Iterator<SelectionKey> iterator = selectionKeys.iterator();
+                Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
                 SelectionKey key;
                 while (iterator.hasNext()) {
                     key = iterator.next();
+
+                    /*
+                    // 为什么需要删除:  Selector不会自己
+                    从已选择键集中移除SelectionKey实例。必须在处理完通道时自己移除。下
+                    次该通道变成就绪时，Selector会再次将其放入已选择键集中。
+                     */
                     iterator.remove();
                     try {
                         handleInput(key);
@@ -71,7 +75,7 @@ public class MultiplexerTimeServer implements Runnable {
             }
         }
 
-        if(selector != null){
+        if (selector != null) {
             try {
                 selector.close();
             } catch (IOException e) {
@@ -100,8 +104,8 @@ public class MultiplexerTimeServer implements Runnable {
                     String body = new String(bytes, "UTF-8");
                     System.out.println("the time server receive order : " + body);
                     String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ?
-                                         new Date(System.currentTimeMillis()).toString() :
-                                         "BAD ORDER";
+                            new Date(System.currentTimeMillis()).toString() :
+                            "BAD ORDER";
                     doWrite(sc, currentTime);
                 }
             }

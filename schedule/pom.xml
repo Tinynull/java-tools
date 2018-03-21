@@ -9,17 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>netty</artifactId>
+    <artifactId>schedule</artifactId>
+
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+        <!-- https://mvnrepository.com/artifact/cn.bestwu/tbschedule -->
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.4.Final</version>
+            <groupId>cn.bestwu</groupId>
+            <artifactId>tbschedule</artifactId>
+            <version>3.2.18</version>
         </dependency>
 
-
     </dependencies>
-
 
 </project>

@@ -1,7 +1,5 @@
 package com.zhaoliang.curator;
 
-import java.util.List;
-
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
@@ -9,7 +7,9 @@ import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 
-import static com.zhaoliang.curator.study.Constants.*;
+import java.util.List;
+
+import static com.zhaoliang.curator.Constants.zookeeperAddress;
 
 public class ListenerExample {
 

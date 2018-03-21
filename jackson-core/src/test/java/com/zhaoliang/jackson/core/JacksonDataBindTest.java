@@ -2,7 +2,7 @@ package com.zhaoliang.jackson.core;
 
 /**
  * jackson data bind test.
- * Created by (zhaoliang@metagraph.io) on (17-2-8).
+ * Created by (zhaoliang@metagraph.bio) on (17-2-8).
  */
 
 import com.fasterxml.jackson.annotation.JsonInclude;

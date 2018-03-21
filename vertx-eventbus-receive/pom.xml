@@ -17,6 +17,36 @@
         <main-Class2>com.zhaoliang.vertx.eventbus.receive.PointReceiver</main-Class2>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+        </dependency>
+
+
+        <!--vertx相关依赖-->
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>${vertx.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-hazelcast</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -35,7 +65,7 @@
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>${main-Class2}</mainClass>
                                     <!--<manifestEntries>
-                                        <Main-Class>io.vertx.core.Starter</Main-Class>
+                                        <Main-Class>bio.vertx.core.Starter</Main-Class>
                                         <Main-Verticle>com.zhaoliang.receviceone.Receiver</Main-Verticle>
                                     </manifestEntries>-->
                                 </transformer>

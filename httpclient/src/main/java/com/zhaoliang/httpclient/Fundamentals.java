@@ -258,7 +258,7 @@ public class Fundamentals {
      * HttpEntity#getContent() or HttpEntity#writeTo(OutputStream) methods.
      * HttpClient also comes with the EntityUtils class, which exposes several
      * static methods to more easily read the content or information from an
-     * entity. Instead of reading the java.io.InputStream directly, one can
+     * entity. Instead of reading the java.bio.InputStream directly, one can
      * retrieve the whole content body in a string / byte array by using the
      * methods from this class. However, the use of EntityUtils is strongly
      * discouraged unless the response entities originate from a trusted HTTP

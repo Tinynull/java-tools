@@ -1,7 +1,5 @@
 package info.zhaoliang.java8.management;
 
-import sun.lwawt.*;
-
 import java.lang.management.*;
 import java.util.Date;
 import java.util.List;

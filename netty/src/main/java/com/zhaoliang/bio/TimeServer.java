@@ -1,4 +1,6 @@
-package com.zhaoliang.io;
+package com.zhaoliang.bio;
+
+import com.zhaoliang.TimeServerHandler;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -11,11 +13,11 @@ public class TimeServer {
 
     public static void main(String[] args) {
         int port = 9999;
-        ServerSocket server = null;
+        ServerSocket server;
         try {
             server = new ServerSocket(port);
             System.out.println("the time server is start in port : " + port);
-            Socket socket = null;
+            Socket socket;
             while (true) {
                 socket = server.accept();
                 new Thread(new TimeServerHandler(socket)).start();

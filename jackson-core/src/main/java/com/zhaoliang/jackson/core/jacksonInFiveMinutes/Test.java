@@ -22,7 +22,6 @@ public class Test {
           2. byte[]数组。
           3. 简单的对象类型。
           4. 枚举类型。
-
          */
         User user = mapper.readValue(resource, User.class);
         System.out.println(user);

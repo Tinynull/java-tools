@@ -1,4 +1,4 @@
-package com.zhaoliang.io;
+package com.zhaoliang;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -19,7 +19,7 @@ public class DiscardServerHandler extends ChannelInboundHandlerAdapter {
 
 
         try {
-            //这个低效的循环事实上可以简化为:System.out.println(in.toString(io.netty.util.CharsetUtil.US_ASCII))
+            //这个低效的循环事实上可以简化为:System.out.println(in.toString(bio.netty.util.CharsetUtil.US_ASCII))
             while (in.isReadable()) { // (1)
                 System.out.print((char) in.readByte());
                 System.out.flush();

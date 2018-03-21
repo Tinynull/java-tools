@@ -1,4 +1,4 @@
-package com.zhaoliang.io;
+package com.zhaoliang.bio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,6 +25,7 @@ public class TimeClient {
             String response = in.readLine();
             System.out.println("now is : " + response);
         } catch (IOException e) {
+            e.printStackTrace();
 
         } finally {
             if (out != null) {

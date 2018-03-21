@@ -33,7 +33,7 @@ import java.util.List;
 
 /**
  * test
- * Created by (zhaoliang@metagraph.io) on (17-2-9).
+ * Created by (zhaoliang@metagraph.bio) on (17-2-9).
  */
 public class HttpClientTest {
        /**

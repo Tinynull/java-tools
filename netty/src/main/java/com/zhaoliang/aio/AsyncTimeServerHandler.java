@@ -9,11 +9,9 @@ import java.util.concurrent.CountDownLatch;
  * Created by zhaoliang(weston_contribute@163.com) on 2016/8/11.
  */
 public class AsyncTimeServerHandler implements Runnable {
-    private int port;
-
     CountDownLatch latch;
-
     AsynchronousServerSocketChannel asynchronousServerSocketChannel;
+    private int port;
 
     public AsyncTimeServerHandler(int port) {
         this.port = port;
@@ -38,7 +36,7 @@ public class AsyncTimeServerHandler implements Runnable {
 
     }
 
-    public void doAccept(){
-        asynchronousServerSocketChannel.accept(this,new AcceptCompletionHandler());
+    public void doAccept() {
+        asynchronousServerSocketChannel.accept(this, new AcceptCompletionHandler());
     }
 }

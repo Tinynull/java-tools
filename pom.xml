@@ -62,6 +62,8 @@
         <module>javatuples</module>
         <module>shiro</module>
         <module>stanfordNLP</module>
+        <module>csv</module>
+        <module>schedule</module>
     </modules>
 
     <dependencyManagement>
