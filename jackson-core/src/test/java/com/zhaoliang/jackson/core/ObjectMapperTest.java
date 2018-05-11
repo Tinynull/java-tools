@@ -1,13 +1,17 @@
 package com.zhaoliang.jackson.core;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -42,6 +46,17 @@ public class ObjectMapperTest {
         assertEquals("weston", value.getName());
         assertEquals(45, value.getAge());
 
+    }
+
+    @Test
+    public void testSet() throws IOException {
+        HashSet<String> strings = new HashSet<>();
+        strings.add("test");
+        String s = mapper.writeValueAsString(strings);
+        System.out.println(s);
+        Set<String> set = mapper.readValue(s, Set.class);
+        System.out.println(set.contains("test"));
+        System.out.println(set);
     }
 
     @Test
