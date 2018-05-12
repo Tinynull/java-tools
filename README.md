@@ -29,5 +29,3 @@ javatuples支持以下几种类型：
 - Octet<a,b,c,d,e,f,g,h>（8个元素）
 - Ennead<a,b,c,d,e,f,g,h,i>（9个元素）
 - Decade<a,b,c,d,e,f,g,h,i,j>（10个元素）
-
-## py4j
