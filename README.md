@@ -1,37 +1,22 @@
 # java-tools
 
 ## 1. Akka 
-> 是一个用 Scala 编写的库，用于简化编写容错的、高可伸缩性的 Java 和 Scala 的 Actor 模型应用。这是远程的修改
+> 是一个用 Scala 编写的库，用于简化编写容错的、高可伸缩性的 Java 和 Scala 的 Actor 模型应用。
 
 
 ## 2. netty
-> 异步非阻塞IO框架。非常推荐。
+> 异步非阻塞IO框架。
 
 ## 3. httpclient
 > HTTP 协议可能是现在 Internet 上使用得最多、最重要的协议了，越来越多的 Java 应用程序需要直接通过 HTTP 协议来访问网络资源。虽然在 JDK 的 java net包中已经提供了访问 HTTP 协议的基本功能，但是对于大部分应用程序来说，JDK 库本身提供的功能还不够丰富和灵活。HttpClient 是 Apache Jakarta Common 下的子项目，用来提供高效的、最新的、功能丰富的支持 HTTP 协议的客户端编程工具包，并且它支持 HTTP 协议最新的版本和建议。HttpClient 已经应用在很多的项目中，比如 Apache Jakarta 上很著名的另外两个开源项目 Cactus 和 HTMLUnit 都使用了 HttpClient。现在HttpClient最新版本为 HttpClient 4.5 (GA)
 
-## tetaset
-> sdfasjdfklasdjfklasdjf
-
 ## 4. commons-lang3
 > 跟java.lang这个包的作用类似，Commons Lang这一组API也是提供一些基础的、通用的操作和处理，如自动生成toString()的结果、自动实现hashCode()和equals()方法、数组操作、枚举、日期和时间的处理等等。
 
-## 3. httpclient---------
-> HTTP 协议可能是现在 Internet 上使用得最多、最重要的协议了，越来越多的 Java 应用程序需要直接通过 HTTP 协议来访问网络资源。虽然在 JDK 的 java net包中已经提供了访问 HTTP 协议的基本功能，但是对于大部分应用程序来说，JDK 库本身提供的功能还不够丰富和灵活。HttpClient 是 Apache Jakarta Common 下的子项目，用来提供高效的、最新的、功能丰富的支持 HTTP 协议的客户端编程工具包，并且它支持 HTTP 协议最新的版本和建议。HttpClient -----已经应用在很多的项目中，比如 Apache ------------Jakarta 上很著名的另外两个开源项目 Cactus 和 HTMLUnit 都使用了 HttpClient。现在HttpClient最新版本为 HttpClient 4.5 (GA)
-
-本地修改
-## 5. javatuples
-> javatuples是最简单的Jav
-
 ## 5. javatuples
 > javatuples是最简单的Java类库之一。设计目标是提供一组在Java中可以使用“tuples”的类。
-一个tuple就是一个相互之间不需ssdfasdfasdfasdfasdfasd要有关联的对象的序列。比如：[23, “Saturn”, java.sql.Connection@li734s]可以看做是一个具有三个元素的tuple（一个triplet），包含一个Integer、一个String、一个JDBC Conne
-dsafsdfasfsldkjfalksdjf
+一个tuple就是一个相互之间不需要有关联的对象的序列。比如：[23, “Saturn”, java.sql.Connection@li734s]可以看做是一个具有三个元素的tuple（一个triplet），包含一个Integer、一个String、一个JDBC Connection对象。
 
-## tetaset
-> sdfasjdfklasdjfklasdjf
-
-这是远程的修改
 javatuples支持以下几种类型：
 
 - Unit（1个元素）
@@ -44,5 +29,3 @@ javatuples支持以下几种类型：
 - Octet<a,b,c,d,e,f,g,h>（8个元素）
 - Ennead<a,b,c,d,e,f,g,h,i>（9个元素）
 - Decade<a,b,c,d,e,f,g,h,i,j>（10个元素）
-
-## py4j
