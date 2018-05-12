@@ -18,7 +18,7 @@
 一个tuple就是一个相互之间不需要有关联的对象的序列。比如：[23, “Saturn”, java.sql.Connection@li734s]可以看做是一个具有三个元素的tuple（一个triplet），包含一个Integer、一个String、一个JDBC Connection对象。
 
 ## 6. ignite
-> 一个分布式缓存带数据网格和计算网格的数据库
+> 一个分布式缓存带数据网格和计算网格的数据库，可以好好学习。
 
 javatuples支持以下几种类型：
 
