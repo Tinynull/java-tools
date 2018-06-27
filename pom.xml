@@ -65,6 +65,7 @@
         <module>csv</module>
         <module>schedule</module>
         <module>mockito</module>
+        <module>poitl</module>
     </modules>
 
     <dependencyManagement>
