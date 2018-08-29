@@ -1,17 +1,15 @@
 package com.zhaoliang.annotation;
 
 /**
- * test.
- *
- * Created by zhaoliang(weston_contribute@163.com) on 2016/6/17.
+ * test. Created by zhaoliang(weston_contribute@163.com) on 2016/6/17.
  */
 public class MyAnnotationTest {
 
     @MyAnnotation(name = "test")
-    private String china;
-
-    @MyAnnotation(name = "test")
     public String hello;
+
+    @MyAnnotation
+    private String china;
 
     @MyAnnotation
     public void info() {
@@ -23,7 +21,9 @@ public class MyAnnotationTest {
         System.out.println("test");
     }
 
-    public void commonMethod() {
-
+    @MyAnnotation(hobby = {"string", "double"})
+    public void test2() {
+        System.out.println("test2");
     }
+
 }

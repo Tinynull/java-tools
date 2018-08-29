@@ -12,6 +12,6 @@ public class Base64Test {
         String s = "wUzbsYLCTwjQYgvW2gkkl98eBWyzxrarV4kGrR8BFbd1dD15T2KiBUTJP8blRkL1HVKpsTuGFiCRbCDaZOMJbK";
         String theUrl = "https://segmentfault.com/q/1010000000801988";
         String s1 = Base64.getUrlEncoder().encodeToString(theUrl.getBytes());
-        System.out.println(new String(s1));
+        System.out.println(s1);
     }
 }

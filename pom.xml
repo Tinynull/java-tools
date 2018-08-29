@@ -66,10 +66,14 @@
         <module>schedule</module>
         <module>mockito</module>
         <module>poitl</module>
+        <module>guava</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+
+
+
 
             <dependency>
                 <groupId>org.javatuples</groupId>

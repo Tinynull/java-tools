@@ -11,6 +11,13 @@
 
     <artifactId>java8</artifactId>
     <dependencies>
+
+        <dependency>
+            <groupId>com.tanzk</groupId>
+            <artifactId>worksheet-stub</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

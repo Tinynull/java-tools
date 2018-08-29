@@ -23,8 +23,7 @@ public class ProcessTool {
                 System.out.println("被MyAnnotation注解修饰的方法名：" + m.getName());
                 MyAnnotation annotation = m.getAnnotation(MyAnnotation.class);
                 System.out.println("方法" + m.getName() + "的MyTag注解内容为：" + annotation.name() + "，" + annotation.age());
-            } else {
-//                System.out.println("没被MyAnnotation注解修饰的方法名：" + m.getName());
+                System.out.println();
             }
         }
 
@@ -53,7 +52,8 @@ public class ProcessTool {
             if (field.isAnnotationPresent(MyAnnotation.class)) {
                 System.out.println(field.getName());
                 MyAnnotation annotation = field.getAnnotation(MyAnnotation.class);
-                System.out.println("field = " + field.getName() + "的MyAnnotation注解内容为：" + annotation.name() + " , " + annotation.age());
+                System.out.println(
+                        "field = " + field.getName() + "的MyAnnotation注解内容为：" + annotation.name() + " , " + annotation.age());
 
             }
         });
@@ -62,11 +62,11 @@ public class ProcessTool {
             if (method.isAnnotationPresent(MyAnnotation.class)) {
                 System.out.println(method.getName());
                 MyAnnotation annotation = method.getAnnotation(MyAnnotation.class);
-                System.out.println("method = " + method.getName() + "的MyAnnotation注解内容为：" + annotation.name() + " , " + annotation.age());
+                System.out.println(
+                        "method = " + method.getName() + "的MyAnnotation注解内容为：" + annotation.name() + " , " + annotation.age());
             }
         });
     }
-
 
     public static void main(String[] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
         ProcessTool.process("com.zhaoliang.annotation.MyAnnotationTest");

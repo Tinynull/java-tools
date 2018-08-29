@@ -12,7 +12,7 @@ import org.apache.commons.configuration2.ex.ConfigurationException;
  *
  * Created by zhaoliang(weston_contribute@163.com) on 2016/6/7.
  */
-public class MulitProperties {
+public class MuiltProperties {
     public static void main(String[] args) throws ConfigurationException {
         Parameters params = new Parameters();
         FileBasedConfigurationBuilder<PropertiesConfiguration> builder =
